@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Mahi Productivity</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    body { background-color: #0B0F1A; color: #E2E8F0; font-family: 'DM Sans', sans-serif; }
+  </style>
+</head>
+<body class="py-20 px-6">
+  <div class="max-w-3xl mx-auto">
+    <a href="index.html" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition mb-12">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+    </a>
+
+    <header class="mb-16">
+      <h1 class="text-5xl font-bold mb-6 text-slate-100" style="font-family: 'Playfair Display', serif;">Project Documentation</h1>
+      <p class="text-xl text-slate-400">Everything you need to know about Mahi Productivity 1.0.</p>
+    </header>
+
+    <div class="space-y-12">
+      
+      <section>
+        <h2 class="text-2xl font-bold text-indigo-400 mb-4 uppercase tracking-widest text-sm">The Mission</h2>
+        <div class="glass-card rounded-2xl p-8 leading-relaxed text-slate-300">
+          Mahi Productivity was built to solve a simple problem: <strong>The Internet is loud.</strong> 
+          This tool is designed for students and creators who need a "digital fortress" to get their best work done. 
+          It combines hardware-level logic with a soft, modern UI.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-indigo-400 mb-4 uppercase tracking-widest text-sm">Tech Stack</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+            <i data-lucide="code-2" class="text-pink-500"></i>
+            <div><p class="font-bold">Python 3</p><p class="text-xs text-slate-500">Core Logic</p></div>
+          </div>
+          <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+            <i data-lucide="layout" class="text-blue-400"></i>
+            <div><p class="font-bold">CustomTkinter</p><p class="text-xs text-slate-500">Modern Dark UI</p></div>
+          </div>
+          <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+            <i data-lucide="shield-check" class="text-green-400"></i>
+            <div><p class="font-bold">Psutil</p><p class="text-xs text-slate-500">Process Management</p></div>
+          </div>
+          <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+            <i data-lucide="box" class="text-yellow-400"></i>
+            <div><p class="font-bold">Inno Setup</p><p class="text-xs text-slate-500">Windows Installer</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-indigo-400 mb-4 uppercase tracking-widest text-sm">Installation & Security</h2>
+        <div class="glass-card rounded-2xl p-8 space-y-4 text-slate-300">
+          <p>As an independent developer, this app is not "digitally signed" by a major corporation. When you install:</p>
+          <ul class="list-disc pl-6 space-y-2 text-sm">
+            <li>Windows SmartScreen may appear. Click <strong>"More Info"</strong> and <strong>"Run Anyway"</strong>.</li>
+            <li>The app requires <strong>Admin Privileges</strong> to function properly (this allows the App Blocker to close distracting programs).</li>
+            <li>Your data (Journal/Todo) is stored <strong>locally</strong> on your machine. We never see your data.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="pt-12 border-t border-white/5 text-center text-sm text-slate-500">
+        <p>© 2026 Mahi Productivity • Open Source under MIT License</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
