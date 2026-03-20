@@ -36,7 +36,7 @@ Pygame - Handling the high-fidelity ambient audio.
 
 Psutil - Powering the intelligent App Blocker.
 
-Inno Setup - For the professional Windows installation experience.
+Inno Setup - For the professional Windows installation experience. 
 
 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
