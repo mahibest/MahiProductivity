@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahi Productivity</title>
+  <link rel="icon" type="image/x-icon" href="files/logo.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; scroll-behavior: smooth; }
+    .app-wrapper { font-family: 'DM Sans', sans-serif; background-color: #0B0F1A; color: #E2E8F0; min-height: 100%; }
+    .hero-gradient { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.15) 0%, transparent 60%); }
+    .glass-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .feature-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .feature-card:hover { transform: translateY(-8px); border-color: rgba(99,102,241,0.4); background: rgba(255,255,255,0.07); }
+    .cta-btn { transition: all 0.3s ease; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99,102,241,0.4); }
+    .fade-in { animation: fadeInUp 0.7s ease-out forwards; opacity: 0; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourlink.com/">
+  <meta property="og:title" content="Mahi Productivity - Focus Harder">
+  <meta property="og:description" content="A free, all-in-one focus toolkit for Windows. Download now.">
+  <meta property="og:image" content="https://yourlink.com/preview-image.png">
+</head>
+<body class="h-full">
+  <div class="app-wrapper">
+    <nav class="fixed top-0 left-0 w-full z-50 border-b border-white/5 bg-[#0B0F1A]/80 backdrop-blur-xl">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white/5">
+            <img src="files/logo.ico" alt="Mahi Logo" class="w-6 h-6 object-contain">
+          </div>
+          <span class="text-xl font-bold text-slate-100">Mahi</span>
+        </div>
+        <div class="flex items-center gap-6 md:gap-8">
+          <a href="#features" class="text-sm text-slate-400 hover:text-white transition">Features</a>
+          <a href="files/MahiProductivity_installer.exe" onclick="handleDownload()" class="text-xs font-semibold bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 px-3 py-1.5 rounded-md hover:bg-indigo-600 hover:text-white transition-all duration-300">
+            Download
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-gradient pt-32 pb-20 px-6 text-center">
+      <div class="max-w-5xl mx-auto">
+        <div class="fade-in inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium mb-8 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span>The ultimate focus toolkit for Windows</span>
+        </div>
+        <h1 class="fade-in text-5xl md:text-7xl font-bold tracking-tight text-slate-100 mb-6" style="font-family: 'Playfair Display', serif;">Focus harder.<br>Build better habits.</h1>
+        <p class="fade-in text-lg text-slate-400 max-w-2xl mx-auto mb-10">All your productivity tools in one place. No ads, no subscriptions, just pure focus.</p>
+        <a href="files/MahiProductivity_installer.exe" onclick="handleDownload()" class="cta-btn bg-indigo-600 text-white font-semibold px-8 py-4 rounded-xl text-lg inline-block">
+          Download Now (Windows)
+        </a>
+      </div>
+    </section>
+
+    <section id="features" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-100" style="font-family: 'Playfair Display', serif;">9 Features built for deep work</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="feature-grid"></div>
+    </section>
+
+    <div id="feature-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-md" onclick="if(event.target === event.currentTarget) closeFeatureModal()">
+      <div class="glass-card rounded-3xl p-8 max-w-xl w-full bg-[#0B0F1A] border-white/10 shadow-2xl">
+        <div class="flex justify-between items-start mb-6">
+          <div id="modal-icon-container" class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"></div>
+          <button onclick="closeFeatureModal()" class="p-2 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition"><i data-lucide="x"></i></button>
+        </div>
+        <h2 id="modal-title" class="text-3xl font-bold text-slate-100 mb-2"></h2>
+        <p id="modal-description" class="text-lg text-slate-400 mb-8"></p>
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/5">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">What's included:</h4>
+          <ul id="modal-list" class="space-y-4 text-slate-300"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="thank-you-modal" class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-lg">
+      <div class="glass-card rounded-3xl p-10 max-w-md w-full text-center border-indigo-500/30">
+        <div class="w-20 h-20 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i data-lucide="heart" class="w-10 h-10 text-indigo-400 fill-indigo-400/20"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-slate-100 mb-4" style="font-family: 'Playfair Display', serif;">Thank You!</h2>
+        <p class="text-slate-400 mb-8 leading-relaxed">Your download should start automatically. Get ready to supercharge your focus!</p>
+        <button onclick="closeThankYou()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl hover:bg-indigo-500 transition-colors">
+          Let's go!
+        </button>
+      </div>
+    </div>
+
+    <footer class="py-12 border-t border-white/5 text-center">
+      <p class="text-sm text-slate-500 mb-2">Developed with ❤️ for the focus community.</p>
+      <p class="text-xs text-slate-700">© 2026 Mahi. Completely Free & Open Source.</p>
+    </footer>
+  </div>
+
+  <script>
+    const featureData = [
+      { title: 'App Blocker', icon: 'shield-alert', color: '#818CF8', desc: 'Eliminate digital noise.', details: ['Block custom app lists', 'Auto-launch on focus', 'Hard-mode (no bypass)'] },
+      { title: 'Todo List', icon: 'check-square', color: '#F472B6', desc: 'Track your daily wins.', details: ['Kanban-style tasks', 'Priority labeling', 'Sub-task support'] },
+      { title: 'Journal', icon: 'book-open', color: '#4ADE80', desc: 'Secure your thoughts.', details: ['End-to-end encryption', 'Mood tracking', 'Export to PDF'] },
+      { title: 'Distraction Logger', icon: 'alert-circle', color: '#D8B4FE', desc: 'Audit your attention.', details: ['One-click logging', 'Time-waste reports', 'Focus score analysis'] },
+      { title: 'Focus Timer', icon: 'timer', color: '#93C5FD', desc: 'Master the Pomodoro.', details: ['Custom work/break ratios', 'Ambient sound sync', 'Desktop notifications'] },
+      { title: 'Ambient Sounds', icon: 'music', color: '#FCD34D', desc: 'Soundscapes for flow.', details: ['High-fidelity rain/fire', 'Binaural focus beats', 'Volume mixer'] },
+      { title: 'Quick Notes', icon: 'sticky-note', color: '#2DD4BF', desc: 'Capture lightning ideas.', details: ['Floating overlay mode', 'Markdown support', 'Sync with Todo list'] },
+      { title: 'Settings', icon: 'settings', color: '#94A3B8', desc: 'Tailor your workspace.', details: ['Dynamic themes', 'Shortcuts mapping', 'Data management'] },
+      { title: 'Daily Summary', icon: 'bar-chart-3', color: '#FB7185', desc: 'Review your productivity.', details: ['Automated statistics on progress', 'Friendly summaries'] }
+    ];
+
+    const grid = document.getElementById('feature-grid');
+    featureData.forEach((f, i) => {
+      grid.innerHTML += `
+        <button onclick="openFeatureModal(${i})" class="feature-card glass-card rounded-2xl p-7 text-left group">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg" style="background: ${f.color}20">
+            <i data-lucide="${f.icon}" style="color: ${f.color}"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-100 mb-2">${f.title}</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">${f.desc}</p>
+        </button>
+      `;
+    });
+
+    // Handle Download and Show Thank You
+    function handleDownload() {
+      setTimeout(() => {
+        document.getElementById('thank-you-modal').classList.remove('hidden');
+        lucide.createIcons();
+      }, 1500);
+    }
+
+    function closeThankYou() {
+      document.getElementById('thank-you-modal').classList.add('hidden');
+    }
+
+    function openFeatureModal(i) {
+      const f = featureData[i];
+      document.getElementById('modal-title').innerText = f.title;
+      document.getElementById('modal-description').innerText = f.desc;
+      const iconCont = document.getElementById('modal-icon-container');
+      iconCont.style.backgroundColor = f.color + '20';
+      iconCont.innerHTML = `<i data-lucide="${f.icon}" style="color: ${f.color}; width: 36px; height: 36px;"></i>`;
+      document.getElementById('modal-list').innerHTML = f.details.map(d => `<li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-indigo-500 w-5 h-5 flex-shrink-0"></i><span class="text-sm font-medium">${d}</span></li>`).join('');
+      document.getElementById('feature-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeFeatureModal() { document.getElementById('feature-modal').classList.add('hidden'); }
+    lucide.createIcons();
+  </script>
+</body>
+</html>
